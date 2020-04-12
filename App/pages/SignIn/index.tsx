@@ -7,9 +7,11 @@ import {
   TextInput,
   TouchableOpacity,
 } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import styles from "./styles";
 
 const SignIn: React.FC = () => {
+  const navigation = useNavigation();
   const inputPasswordRef = useRef<TextInput>(null);
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -53,11 +55,19 @@ const SignIn: React.FC = () => {
           onSubmitEditing={() => console.log(email)}
         />
 
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate("DashboardRoutes")}
+        >
           <Text style={styles.buttonText}>Entrar</Text>
         </TouchableOpacity>
 
-        <Text style={styles.register}>Cadastrar-se</Text>
+        <Text
+          style={styles.register}
+          onPress={() => navigation.navigate("SignUp")}
+        >
+          Cadastrar-se
+        </Text>
       </View>
     </KeyboardAvoidingView>
   );
