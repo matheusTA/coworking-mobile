@@ -1,10 +1,14 @@
 import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
 
-import SignIn from "./pages/SignIn";
-import SignUp from "./pages/SignUp";
+import Routes from "./routes";
 
 const App: React.FC = () => {
-  return <SignUp />;
+  return (
+    <NavigationContainer>
+      <Routes />
+    </NavigationContainer>
+  );
 };
 
 export default App;
