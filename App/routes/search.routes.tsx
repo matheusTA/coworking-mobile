@@ -15,4 +15,4 @@ const SearchRoutes: React.FC = () => {
   );
 };
 
-export default MapRoutes;
+export default SearchRoutes;
