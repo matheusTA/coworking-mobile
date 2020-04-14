@@ -4,15 +4,16 @@ import {
   KeyboardAvoidingView,
   View,
   Text,
-  TextInput,
   TouchableOpacity,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { Input } from "react-native-elements";
+import { MaterialIcons } from "@expo/vector-icons";
 import styles from "./styles";
 
 const SignIn: React.FC = () => {
   const navigation = useNavigation();
-  const inputPasswordRef = useRef<TextInput>(null);
+  const inputPasswordRef = useRef<Input>(null);
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
@@ -26,34 +27,40 @@ const SignIn: React.FC = () => {
     >
       <Text style={styles.title}>Coworking</Text>
       <View style={styles.form}>
-        <Text style={styles.label}>Email</Text>
-        <TextInput
-          style={styles.input}
-          placeholder="coworking@gmail.com"
-          placeholderTextColor="#999"
-          keyboardType="email-address"
-          autoCapitalize="none"
-          autoCorrect={false}
-          returnKeyType="next"
-          blurOnSubmit={false}
-          onSubmitEditing={() => inputPasswordRef.current?.focus()}
-          value={email}
-          onChangeText={setEmail}
-        />
+        <View style={styles.inputContainer}>
+          <Input
+            leftIcon={<MaterialIcons name="email" size={24} color="#F95F62" />}
+            leftIconContainerStyle={{ marginLeft: 0, marginRight: 5 }}
+            label="Email"
+            placeholder="coworking@gmail.com"
+            placeholderTextColor="#999"
+            keyboardType="email-address"
+            autoCapitalize="none"
+            autoCorrect={false}
+            returnKeyType="next"
+            blurOnSubmit={false}
+            onSubmitEditing={() => inputPasswordRef.current?.focus()}
+            value={email}
+            onChangeText={setEmail}
+          />
+        </View>
 
-        <Text style={styles.label}>Senha</Text>
-        <TextInput
-          style={styles.input}
-          placeholder="******"
-          secureTextEntry={true}
-          autoCapitalize="none"
-          autoCorrect={false}
-          ref={inputPasswordRef}
-          value={password}
-          onChangeText={setPassword}
-          returnKeyType="send"
-          onSubmitEditing={() => console.log(email)}
-        />
+        <View style={styles.inputContainer}>
+          <Input
+            leftIcon={<MaterialIcons name="lock" size={24} color="#F95F62" />}
+            leftIconContainerStyle={{ marginLeft: 0, marginRight: 5 }}
+            label="Senha"
+            placeholder="******"
+            secureTextEntry={true}
+            autoCapitalize="none"
+            autoCorrect={false}
+            ref={inputPasswordRef}
+            value={password}
+            onChangeText={setPassword}
+            returnKeyType="send"
+            onSubmitEditing={() => console.log(email)}
+          />
+        </View>
 
         <TouchableOpacity
           style={styles.button}

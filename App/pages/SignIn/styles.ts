@@ -20,21 +20,8 @@ export default StyleSheet.create({
     paddingHorizontal: normalize(30),
   },
 
-  label: {
-    fontWeight: "bold",
-    color: "#444",
-    marginBottom: normalize(8),
-  },
-
-  input: {
-    borderWidth: normalize(3),
-    borderColor: "#DDD",
-    paddingHorizontal: normalize(10),
-    fontSize: normalize(20),
-    color: "#444",
-    height: normalize(44),
+  inputContainer: {
     marginBottom: normalize(20),
-    borderRadius: normalize(10),
   },
 
   button: {
@@ -43,7 +30,7 @@ export default StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     borderRadius: normalize(10),
-    marginTop: normalize(10),
+    marginTop: normalize(30),
     marginBottom: normalize(20),
   },
 
