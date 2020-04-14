@@ -24,8 +24,8 @@ const SearchRoutes: React.FC = () => {
           headerTitleAlign: "center",
           headerRight: () => <SignOut />,
           headerRightContainerStyle: {
-            marginRight: 10,
-            marginTop: 5,
+            marginRight: normalize(15),
+            marginTop: normalize(7),
           },
         }}
       />

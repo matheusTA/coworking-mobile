@@ -9,6 +9,7 @@ import {
 import { useNavigation } from "@react-navigation/native";
 import { Input } from "react-native-elements";
 import { MaterialIcons } from "@expo/vector-icons";
+import normalize from "react-native-normalize";
 
 import styles from "./styles";
 
@@ -31,7 +32,10 @@ const SignIn: React.FC = () => {
         <View style={styles.inputContainer}>
           <Input
             leftIcon={<MaterialIcons name="email" size={24} color="#F95F62" />}
-            leftIconContainerStyle={{ marginLeft: 0, marginRight: 5 }}
+            leftIconContainerStyle={{
+              marginLeft: normalize(0),
+              marginRight: normalize(10),
+            }}
             label="Email"
             placeholder="coworking@gmail.com"
             placeholderTextColor="#999"
@@ -49,7 +53,10 @@ const SignIn: React.FC = () => {
         <View style={styles.inputContainer}>
           <Input
             leftIcon={<MaterialIcons name="lock" size={24} color="#F95F62" />}
-            leftIconContainerStyle={{ marginLeft: 0, marginRight: 5 }}
+            leftIconContainerStyle={{
+              marginLeft: normalize(0),
+              marginRight: normalize(10),
+            }}
             label="Senha"
             placeholder="******"
             secureTextEntry={true}

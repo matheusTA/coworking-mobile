@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import { Input } from "react-native-elements";
 import { FontAwesome, MaterialIcons } from "@expo/vector-icons";
+import normalize from "react-native-normalize";
 
 import styles from "./styles";
 
@@ -36,7 +37,10 @@ const SignUp: React.FC = () => {
         <View style={styles.inputContainer}>
           <Input
             leftIcon={<FontAwesome name="user" size={24} color="#F95F62" />}
-            leftIconContainerStyle={{ marginLeft: 3, marginRight: 8 }}
+            leftIconContainerStyle={{
+              marginLeft: normalize(2),
+              marginRight: normalize(16),
+            }}
             label="Nome"
             placeholder="Fulano da Silva"
             placeholderTextColor="#999"
@@ -53,7 +57,10 @@ const SignUp: React.FC = () => {
         <View style={styles.inputContainer}>
           <Input
             leftIcon={<MaterialIcons name="email" size={24} color="#F95F62" />}
-            leftIconContainerStyle={{ marginLeft: 0, marginRight: 5 }}
+            leftIconContainerStyle={{
+              marginLeft: normalize(0),
+              marginRight: normalize(10),
+            }}
             label="Email"
             placeholder="fulano@gmail.com"
             placeholderTextColor="#999"
@@ -72,7 +79,10 @@ const SignUp: React.FC = () => {
         <View style={styles.inputContainer}>
           <Input
             leftIcon={<MaterialIcons name="lock" size={24} color="#F95F62" />}
-            leftIconContainerStyle={{ marginLeft: 0, marginRight: 5 }}
+            leftIconContainerStyle={{
+              marginLeft: normalize(0),
+              marginRight: normalize(10),
+            }}
             label="Senha"
             placeholder="******"
             secureTextEntry={true}
@@ -92,7 +102,10 @@ const SignUp: React.FC = () => {
             leftIcon={
               <MaterialIcons name="phone-iphone" size={24} color="#F95F62" />
             }
-            leftIconContainerStyle={{ marginLeft: 0, marginRight: 5 }}
+            leftIconContainerStyle={{
+              marginLeft: normalize(0),
+              marginRight: normalize(10),
+            }}
             label="Telefone"
             placeholder="(99) 9 9999-9999"
             placeholderTextColor="#999"
@@ -109,7 +122,10 @@ const SignUp: React.FC = () => {
         <View style={styles.inputContainer}>
           <Input
             leftIcon={<FontAwesome name="code" size={24} color="#F95F62" />}
-            leftIconContainerStyle={{ marginLeft: 0, marginRight: 5 }}
+            leftIconContainerStyle={{
+              marginLeft: normalize(0),
+              marginRight: normalize(10),
+            }}
             label="Tecnologias"
             placeholder="Javascript, ReactJS, NodeJS..."
             placeholderTextColor="#999"
