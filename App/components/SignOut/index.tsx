@@ -17,12 +17,10 @@ const SignOut: React.FC = () => {
 
   return (
     <>
-      <MaterialIcons
-        name="exit-to-app"
-        size={30}
-        color="#F95F62"
-        onPress={() => setIsvisibli(true)}
-      />
+      <TouchableOpacity onPress={() => setIsvisibli(true)}>
+        <MaterialIcons name="exit-to-app" size={30} color="#F95F62" />
+      </TouchableOpacity>
+
       <Overlay
         isVisible={isVisible}
         onBackdropPress={() => setIsvisibli(false)}
