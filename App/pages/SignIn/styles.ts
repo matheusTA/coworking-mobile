@@ -30,7 +30,7 @@ export default StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     borderRadius: normalize(10),
-    marginTop: normalize(30),
+    marginTop: normalize(20),
     marginBottom: normalize(20),
   },
 

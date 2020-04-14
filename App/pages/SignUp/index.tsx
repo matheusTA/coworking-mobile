@@ -4,16 +4,18 @@ import {
   View,
   KeyboardAvoidingView,
   Text,
-  TextInput,
   TouchableOpacity,
 } from "react-native";
+import { Input } from "react-native-elements";
+import { FontAwesome, MaterialIcons } from "@expo/vector-icons";
+
 import styles from "./styles";
 
 const SignUp: React.FC = () => {
-  const inputEmailRef = useRef<TextInput>(null);
-  const inputPasswordRef = useRef<TextInput>(null);
-  const inputPhoneRef = useRef<TextInput>(null);
-  const inputTechsRef = useRef<TextInput>(null);
+  const inputEmailRef = useRef<Input>(null);
+  const inputPasswordRef = useRef<Input>(null);
+  const inputPhoneRef = useRef<Input>(null);
+  const inputTechsRef = useRef<Input>(null);
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -31,77 +33,94 @@ const SignUp: React.FC = () => {
       <Text style={styles.title}>Coworking</Text>
 
       <View style={styles.form}>
-        <Text style={styles.label}>Nome</Text>
-        <TextInput
-          style={styles.input}
-          placeholder="Fulano da Silva"
-          placeholderTextColor="#999"
-          autoCapitalize="words"
-          autoCorrect={false}
-          returnKeyType="next"
-          blurOnSubmit={false}
-          onSubmitEditing={() => inputEmailRef.current?.focus()}
-          value={name}
-          onChangeText={setName}
-        />
+        <View style={styles.inputContainer}>
+          <Input
+            leftIcon={<FontAwesome name="user" size={24} color="#F95F62" />}
+            leftIconContainerStyle={{ marginLeft: 3, marginRight: 8 }}
+            label="Nome"
+            placeholder="Fulano da Silva"
+            placeholderTextColor="#999"
+            autoCapitalize="words"
+            autoCorrect={false}
+            returnKeyType="next"
+            blurOnSubmit={false}
+            onSubmitEditing={() => inputEmailRef.current?.focus()}
+            value={name}
+            onChangeText={setName}
+          />
+        </View>
 
-        <Text style={styles.label}>Email</Text>
-        <TextInput
-          style={styles.input}
-          placeholder="fulano@gmail.com"
-          placeholderTextColor="#999"
-          keyboardType="email-address"
-          autoCapitalize="none"
-          autoCorrect={false}
-          returnKeyType="next"
-          ref={inputEmailRef}
-          blurOnSubmit={false}
-          onSubmitEditing={() => inputPasswordRef.current?.focus()}
-          value={email}
-          onChangeText={setEmail}
-        />
+        <View style={styles.inputContainer}>
+          <Input
+            leftIcon={<MaterialIcons name="email" size={24} color="#F95F62" />}
+            leftIconContainerStyle={{ marginLeft: 0, marginRight: 5 }}
+            label="Email"
+            placeholder="fulano@gmail.com"
+            placeholderTextColor="#999"
+            keyboardType="email-address"
+            autoCapitalize="none"
+            autoCorrect={false}
+            returnKeyType="next"
+            ref={inputEmailRef}
+            blurOnSubmit={false}
+            onSubmitEditing={() => inputPasswordRef.current?.focus()}
+            value={email}
+            onChangeText={setEmail}
+          />
+        </View>
 
-        <Text style={styles.label}>Senha</Text>
-        <TextInput
-          style={styles.input}
-          placeholder="******"
-          secureTextEntry={true}
-          autoCapitalize="none"
-          autoCorrect={false}
-          returnKeyType="next"
-          ref={inputPasswordRef}
-          blurOnSubmit={false}
-          onSubmitEditing={() => inputPhoneRef.current?.focus()}
-          value={password}
-          onChangeText={setPassword}
-        />
+        <View style={styles.inputContainer}>
+          <Input
+            leftIcon={<MaterialIcons name="lock" size={24} color="#F95F62" />}
+            leftIconContainerStyle={{ marginLeft: 0, marginRight: 5 }}
+            label="Senha"
+            placeholder="******"
+            secureTextEntry={true}
+            autoCapitalize="none"
+            autoCorrect={false}
+            returnKeyType="next"
+            ref={inputPasswordRef}
+            blurOnSubmit={false}
+            onSubmitEditing={() => inputPhoneRef.current?.focus()}
+            value={password}
+            onChangeText={setPassword}
+          />
+        </View>
 
-        <Text style={styles.label}>Telefone</Text>
-        <TextInput
-          style={styles.input}
-          placeholder="(99) 9 9999-9999"
-          placeholderTextColor="#999"
-          keyboardType="phone-pad"
-          returnKeyType="next"
-          ref={inputPhoneRef}
-          blurOnSubmit={false}
-          onSubmitEditing={() => inputTechsRef.current?.focus()}
-          value={phone}
-          onChangeText={setPhone}
-        />
+        <View style={styles.inputContainer}>
+          <Input
+            leftIcon={
+              <MaterialIcons name="phone-iphone" size={24} color="#F95F62" />
+            }
+            leftIconContainerStyle={{ marginLeft: 0, marginRight: 5 }}
+            label="Telefone"
+            placeholder="(99) 9 9999-9999"
+            placeholderTextColor="#999"
+            keyboardType="phone-pad"
+            returnKeyType="next"
+            ref={inputPhoneRef}
+            blurOnSubmit={false}
+            onSubmitEditing={() => inputTechsRef.current?.focus()}
+            value={phone}
+            onChangeText={setPhone}
+          />
+        </View>
 
-        <Text style={styles.label}>Tecnologias</Text>
-        <TextInput
-          style={styles.input}
-          placeholder="Javascript, ReactJS, NodeJS..."
-          placeholderTextColor="#999"
-          autoCapitalize="words"
-          autoCorrect={false}
-          returnKeyType="send"
-          ref={inputTechsRef}
-          value={techs}
-          onChangeText={setTechs}
-        />
+        <View style={styles.inputContainer}>
+          <Input
+            leftIcon={<FontAwesome name="code" size={24} color="#F95F62" />}
+            leftIconContainerStyle={{ marginLeft: 0, marginRight: 5 }}
+            label="Tecnologias"
+            placeholder="Javascript, ReactJS, NodeJS..."
+            placeholderTextColor="#999"
+            autoCapitalize="words"
+            autoCorrect={false}
+            returnKeyType="send"
+            ref={inputTechsRef}
+            value={techs}
+            onChangeText={setTechs}
+          />
+        </View>
 
         <View style={styles.ButtonContainer}>
           <TouchableOpacity style={styles.buttonCancel}>

@@ -9,6 +9,7 @@ import {
 import { useNavigation } from "@react-navigation/native";
 import { Input } from "react-native-elements";
 import { MaterialIcons } from "@expo/vector-icons";
+
 import styles from "./styles";
 
 const SignIn: React.FC = () => {
