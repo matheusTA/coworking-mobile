@@ -4,6 +4,7 @@ import normalize from "react-native-normalize";
 
 import SearchPage from "../pages/Search";
 import CompanyProfilePage from "../pages/CompanyProfile";
+import SignOut from "../components/SignOut";
 
 const Stack = createStackNavigator();
 
@@ -21,13 +22,11 @@ const SearchRoutes: React.FC = () => {
             fontSize: normalize(30),
           },
           headerTitleAlign: "center",
-          // headerRight: () => (
-          //   <Button
-          //     onPress={() => alert("This is a button!")}
-          //     title="Info"
-          //     color="#000"
-          //   />
-          // ),
+          headerRight: () => <SignOut />,
+          headerRightContainerStyle: {
+            marginRight: 10,
+            marginTop: 5,
+          },
         }}
       />
       <Stack.Screen
@@ -43,13 +42,6 @@ const SearchRoutes: React.FC = () => {
           headerTitleAlign: "center",
           headerBackTitle: "Voltar",
           headerBackTitleVisible: true,
-          // headerRight: () => (
-          //   <Button
-          //     onPress={() => alert("This is a button!")}
-          //     title="Info"
-          //     color="#000"
-          //   />
-          // ),
         }}
       />
     </Stack.Navigator>
