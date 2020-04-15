@@ -20,10 +20,6 @@ export default StyleSheet.create({
     paddingHorizontal: normalize(30),
   },
 
-  inputContainer: {
-    marginBottom: normalize(20),
-  },
-
   button: {
     height: normalize(50),
     backgroundColor: "#F95F62",

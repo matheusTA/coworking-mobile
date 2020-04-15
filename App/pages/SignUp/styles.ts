@@ -21,7 +21,7 @@ export default StyleSheet.create({
   },
 
   inputContainer: {
-    marginBottom: normalize(10),
+    marginBottom: normalize(26.56),
   },
 
   ButtonContainer: {
