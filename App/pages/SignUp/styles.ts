@@ -1,10 +1,15 @@
 import { StyleSheet } from "react-native";
 import normalize from "react-native-normalize";
+import Constants from "expo-constants";
 
 export default StyleSheet.create({
+  safeArea: {
+    flex: 1,
+    marginTop: Constants.statusBarHeight,
+  },
+
   container: {
     flex: 1,
-    justifyContent: "center",
     alignItems: "center",
   },
 
@@ -28,6 +33,7 @@ export default StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     marginTop: normalize(20),
+    marginBottom: normalize(20),
   },
 
   buttonCancel: {

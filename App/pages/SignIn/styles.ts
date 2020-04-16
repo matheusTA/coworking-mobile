@@ -1,7 +1,13 @@
 import { StyleSheet } from "react-native";
 import normalize from "react-native-normalize";
+import Constants from "expo-constants";
 
 export default StyleSheet.create({
+  safeArea: {
+    flex: 1,
+    marginTop: Constants.statusBarHeight,
+  },
+
   container: {
     flex: 1,
     justifyContent: "center",
@@ -41,5 +47,6 @@ export default StyleSheet.create({
     color: "#666",
     fontWeight: "bold",
     fontSize: normalize(20),
+    marginBottom: normalize(20),
   },
 });
