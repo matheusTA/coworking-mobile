@@ -32,7 +32,7 @@ export default StyleSheet.create({
   ButtonContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
-    marginTop: normalize(20),
+    marginTop: normalize(10),
     marginBottom: normalize(20),
   },
 

@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
-import { SafeAreaView, View, Text, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { SafeAreaView, View, Text, TouchableOpacity } from "react-native";
 import { Input } from "react-native-elements";
 import { MaterialIcons } from "@expo/vector-icons";
 import normalize from "react-native-normalize";
