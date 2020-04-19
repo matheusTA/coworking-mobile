@@ -4,7 +4,7 @@ import { View, Text, TouchableOpacity, SafeAreaView } from "react-native";
 import { Input } from "react-native-elements";
 import { FontAwesome, MaterialIcons } from "@expo/vector-icons";
 import normalize from "react-native-normalize";
-import { Formik } from "formik";
+import { Formik, FormikHelpers } from "formik";
 import * as Yup from "yup";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import Toast from "react-native-easy-toast";
@@ -50,12 +50,15 @@ const SignUp: React.FC = () => {
     techs: "",
   };
 
-  async function handleSignUpRegister(formValues: FormValues) {
+  async function handleSignUpRegister(
+    formValues: FormValues,
+    formikHelpers: FormikHelpers<FormValues>
+  ) {
     try {
-      console.log(formValues);
       setLoading(true);
       await api.post("/user", formValues);
       setLoading(false);
+      formikHelpers.resetForm();
       navigation.navigate("SignIn");
     } catch (error) {
       setLoading(false);
@@ -76,7 +79,9 @@ const SignUp: React.FC = () => {
           <Formik
             initialValues={initialValues}
             validationSchema={SignUpValidationSchema}
-            onSubmit={(values) => handleSignUpRegister(values)}
+            onSubmit={(values, formikHelpers) =>
+              handleSignUpRegister(values, formikHelpers)
+            }
           >
             {({
               handleChange,
