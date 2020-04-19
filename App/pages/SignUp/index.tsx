@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { View, Text, TouchableOpacity, SafeAreaView } from "react-native";
 import { Input } from "react-native-elements";
@@ -7,9 +7,13 @@ import normalize from "react-native-normalize";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import Toast from "react-native-easy-toast";
+import Lottie from "lottie-react-native";
 
+import api from "../../services/api";
 import { dinamicPadding } from "../../utils/dinamicPaddingInput";
 import styles from "./styles";
+import loadingAnimation from "../../lottieAnimation/loading.json";
 
 interface FormValues {
   name: string;
@@ -31,6 +35,8 @@ const SignUpValidationSchema = Yup.object().shape({
 
 const SignUp: React.FC = () => {
   const navigation = useNavigation();
+  const [loading, setLoading] = useState(false);
+  const toastRef = useRef<Toast>(null);
   const inputNameRef = useRef<Input>(null);
   const inputEmailRef = useRef<Input>(null);
   const inputPasswordRef = useRef<Input>(null);
@@ -44,6 +50,23 @@ const SignUp: React.FC = () => {
     techs: "",
   };
 
+  async function handleSignUpRegister(formValues: FormValues) {
+    try {
+      console.log(formValues);
+      setLoading(true);
+      await api.post("/user", formValues);
+      setLoading(false);
+      navigation.navigate("SignIn");
+    } catch (error) {
+      setLoading(false);
+      toastRef.current?.show("Algo deu errado, tente novamente!");
+    }
+  }
+
+  function handleSignUpCancel() {
+    navigation.navigate("SignIn");
+  }
+
   return (
     <SafeAreaView style={styles.safeArea}>
       <KeyboardAwareScrollView>
@@ -53,7 +76,7 @@ const SignUp: React.FC = () => {
           <Formik
             initialValues={initialValues}
             validationSchema={SignUpValidationSchema}
-            onSubmit={(values) => console.log(values)}
+            onSubmit={(values) => handleSignUpRegister(values)}
           >
             {({
               handleChange,
@@ -224,7 +247,10 @@ const SignUp: React.FC = () => {
                 </View>
 
                 <View style={styles.ButtonContainer}>
-                  <TouchableOpacity style={styles.buttonCancel}>
+                  <TouchableOpacity
+                    style={styles.buttonCancel}
+                    onPress={() => handleSignUpCancel()}
+                  >
                     <Text style={styles.buttonTextCancel}>Cancelar</Text>
                   </TouchableOpacity>
 
@@ -232,7 +258,18 @@ const SignUp: React.FC = () => {
                     style={styles.buttonRegister}
                     onPress={() => handleSubmit()}
                   >
-                    <Text style={styles.buttonTextRegister}>Cadastrar</Text>
+                    {loading ? (
+                      <Lottie
+                        source={loadingAnimation}
+                        resizeMode="contain"
+                        autoSize
+                        autoPlay={loading}
+                        loop={loading}
+                        style={{ width: normalize(50) }}
+                      />
+                    ) : (
+                      <Text style={styles.buttonTextRegister}>Cadastrar</Text>
+                    )}
                   </TouchableOpacity>
                 </View>
               </View>
@@ -240,6 +277,7 @@ const SignUp: React.FC = () => {
           </Formik>
         </View>
       </KeyboardAwareScrollView>
+      <Toast ref={toastRef} style={{ backgroundColor: "red" }} />
     </SafeAreaView>
   );
 };
