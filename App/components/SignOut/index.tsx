@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, AsyncStorage } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { Overlay } from "react-native-elements";
 import { MaterialIcons } from "@expo/vector-icons";
@@ -10,7 +10,8 @@ const SignOut: React.FC = () => {
   const navigation = useNavigation();
   const [isVisible, setIsvisibli] = useState(false);
 
-  function handleSignOut() {
+  async function handleSignOut() {
+    await AsyncStorage.clear();
     setIsvisibli(false);
     navigation.navigate("SignIn");
   }
