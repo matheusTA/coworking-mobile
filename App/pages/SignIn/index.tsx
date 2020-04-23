@@ -1,12 +1,6 @@
 import React, { useRef, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
-import {
-  SafeAreaView,
-  View,
-  Text,
-  TouchableOpacity,
-  AsyncStorage,
-} from "react-native";
+import { SafeAreaView, View, Text, TouchableOpacity } from "react-native";
 import { Input } from "react-native-elements";
 import { MaterialIcons } from "@expo/vector-icons";
 import normalize from "react-native-normalize";
@@ -16,11 +10,10 @@ import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view
 import Toast from "react-native-easy-toast";
 import Lottie from "lottie-react-native";
 
-import api from "../../services/api";
+import { useAuth } from "../../contexts/auth";
 import { dinamicPadding } from "../../utils/dinamicPaddingInput";
 import styles from "./styles";
 import loadingAnimation from "../../lottieAnimation/loading.json";
-import { ResponseSignInUser } from "../../models/user";
 
 interface FormValues {
   email: string;
@@ -36,6 +29,7 @@ const SignInValidationSchema = Yup.object().shape({
 
 const SignIn: React.FC = () => {
   const navigation = useNavigation();
+  const { signIn } = useAuth();
   const [loading, setLoading] = useState(false);
   const toastRef = useRef<Toast>(null);
   const inputEmailRef = useRef<Input>(null);
@@ -48,24 +42,18 @@ const SignIn: React.FC = () => {
   ) {
     try {
       setLoading(true);
-      const responseSignInUser = await api.post<ResponseSignInUser>(
-        "/user/login",
-        formValues
+
+      const responseSignInUser = await signIn(
+        formValues.email,
+        formValues.password
       );
 
-      if (!!responseSignInUser.data.success) {
-        setLoading(false);
+      if (!responseSignInUser.data.success) {
         toastRef.current?.show(responseSignInUser.data.message);
         return;
       }
 
-      await AsyncStorage.setItem(
-        "user",
-        JSON.stringify(responseSignInUser.data)
-      );
-      setLoading(false);
       formikHelpers.resetForm();
-      navigation.navigate("DashboardRoutes");
     } catch (error) {
       setLoading(false);
       toastRef.current?.show("Algo deu errado, tente novamente!");
