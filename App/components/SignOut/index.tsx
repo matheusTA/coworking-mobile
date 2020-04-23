@@ -1,19 +1,17 @@
 import React, { useState } from "react";
-import { View, Text, TouchableOpacity, AsyncStorage } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import { View, Text, TouchableOpacity } from "react-native";
 import { Overlay } from "react-native-elements";
 import { MaterialIcons } from "@expo/vector-icons";
 
+import { useAuth } from "../../contexts/auth";
 import styles from "./styles";
 
 const SignOut: React.FC = () => {
-  const navigation = useNavigation();
+  const { signOut } = useAuth();
   const [isVisible, setIsvisibli] = useState(false);
 
   async function handleSignOut() {
-    await AsyncStorage.clear();
-    setIsvisibli(false);
-    navigation.navigate("SignIn");
+    signOut();
   }
 
   return (
