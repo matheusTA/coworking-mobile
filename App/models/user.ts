@@ -8,7 +8,7 @@ export interface User {
 }
 
 export interface ResponseSignInUser {
-  success: true;
+  success: boolean;
   message: string;
   user?: User;
 }
