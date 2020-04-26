@@ -12,3 +12,10 @@ export interface ResponseSignInUser {
   message: string;
   user?: User;
 }
+
+export interface CurrentRegion {
+  latitude: number;
+  longitude: number;
+  latitudeDelta: number;
+  longitudeDelta: number;
+}
