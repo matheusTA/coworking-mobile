@@ -9,6 +9,7 @@ import { useNavigation } from "@react-navigation/native";
 import { CurrentRegion } from "../../models/User";
 import { Company, ResponseCompaniesByLocation } from "../../models/Company";
 
+import MapLoading from "../../components/MapLoading";
 import api from "../../services/api";
 import styles from "./styles";
 
@@ -65,7 +66,7 @@ export const Map: React.FC = () => {
   }
 
   if (!currentRegion) {
-    return <Text style={styles.companyName}>Carregando...</Text>;
+    return <MapLoading />;
   }
 
   return (
