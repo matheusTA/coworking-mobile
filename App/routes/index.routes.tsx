@@ -5,6 +5,7 @@ import { useAuth } from "../contexts/auth";
 import SignIn from "../pages/SignIn";
 import SignUp from "../pages/SignUp";
 import DashboardRoutes from "./dashboard.routes";
+import SplashScreen from "../pages/SplashScreen";
 
 const Stack = createStackNavigator();
 
@@ -24,6 +25,9 @@ const AppRoutes: React.FC = () => (
 const Routes: React.FC = () => {
   const { signed, loading } = useAuth();
 
+  if (loading) {
+    return <SplashScreen />;
+  }
   return signed ? <AuthRoutes /> : <AppRoutes />;
 };
 
