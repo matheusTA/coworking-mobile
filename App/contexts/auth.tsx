@@ -1,7 +1,7 @@
 import React, { createContext, useState, useEffect, useContext } from "react";
 import { AsyncStorage } from "react-native";
 import api from "../services/api";
-import { ResponseSignInUser, User } from "../models/user";
+import { ResponseSignInUser, User } from "../models/User";
 import { AxiosResponse } from "axios";
 
 interface AuthContextData {
