@@ -25,6 +25,8 @@ export const AuthProvider: React.FC = ({ children }) => {
     async function loadStoregedData() {
       const storegedUser = await AsyncStorage.getItem("@Auth:user");
 
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
       if (storegedUser) {
         setUser(JSON.parse(storegedUser));
         setLoading(false);
