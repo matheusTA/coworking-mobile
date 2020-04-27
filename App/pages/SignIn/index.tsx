@@ -36,24 +36,11 @@ const SignIn: React.FC = () => {
   const inputPasswordRef = useRef<Input>(null);
   const initialValues: FormValues = { email: "", password: "" };
 
-  async function handleSignIn(
-    formValues: FormValues,
-    formikHelpers: FormikHelpers<FormValues>
-  ) {
+  async function handleSignIn(formValues: FormValues) {
     try {
       setLoading(true);
 
-      const responseSignInUser = await signIn(
-        formValues.email,
-        formValues.password
-      );
-
-      if (!responseSignInUser.data.success) {
-        toastRef.current?.show(responseSignInUser.data.message);
-        return;
-      }
-
-      formikHelpers.resetForm();
+      await signIn(formValues.email, formValues.password);
     } catch (error) {
       setLoading(false);
       toastRef.current?.show("Algo deu errado, tente novamente!");
@@ -69,9 +56,7 @@ const SignIn: React.FC = () => {
           <Formik
             initialValues={initialValues}
             validationSchema={SignInValidationSchema}
-            onSubmit={(values, formikHelpers) =>
-              handleSignIn(values, formikHelpers)
-            }
+            onSubmit={(values) => handleSignIn(values)}
           >
             {({
               handleChange,
