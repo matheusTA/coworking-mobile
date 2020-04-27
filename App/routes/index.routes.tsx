@@ -28,6 +28,7 @@ const Routes: React.FC = () => {
   if (loading) {
     return <SplashScreen />;
   }
+
   return signed ? <AuthRoutes /> : <AppRoutes />;
 };
 
