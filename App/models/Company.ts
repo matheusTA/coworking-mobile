@@ -30,3 +30,8 @@ export interface ResponseCompaniesByLocation {
   success: boolean;
   companies: Company[];
 }
+
+export interface ResponseCompanyById {
+  success: boolean;
+  company: Company;
+}
