@@ -11,6 +11,7 @@ const SignOut: React.FC = () => {
   const [isVisible, setIsvisibli] = useState(false);
 
   async function handleSignOut() {
+    setIsvisibli(false);
     signOut();
   }
 
