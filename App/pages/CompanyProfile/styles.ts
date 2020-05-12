@@ -3,7 +3,6 @@ import normalize from "react-native-normalize";
 
 export default StyleSheet.create({
   container: {
-    flex: 1,
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -50,13 +49,52 @@ export default StyleSheet.create({
     color: "#666",
   },
 
-  spotsContainer: {},
+  linkedinBotton: {
+    backgroundColor: "#F6F6F6",
+    borderRadius: 10,
+  },
 
-  spot: {},
+  spotsTitleSection: {
+    textAlign: "center",
+    fontSize: normalize(25),
+    fontWeight: "bold",
+    color: "#666",
+    marginVertical: normalize(10),
+  },
 
-  spotImage: {},
+  spotsContainer: {
+    flexDirection: "row",
+    backgroundColor: "#FFF",
+    paddingVertical: normalize(15),
+    paddingHorizontal: normalize(15),
+    marginHorizontal: normalize(10),
+    marginVertical: normalize(10),
+    borderRadius: 10,
+  },
 
-  spotTitle: {},
+  spotImage: {
+    width: normalize(80),
+    height: normalize(80),
+    borderRadius: 50,
+    borderWidth: normalize(4),
+    marginRight: normalize(20),
+  },
 
-  spotPrice: {},
+  spotData: {
+    flex: 1,
+    justifyContent: "space-between",
+  },
+
+  spotTitle: {
+    fontSize: normalize(25),
+    fontWeight: "300",
+    color: "#666",
+  },
+
+  spotPrice: {
+    fontSize: normalize(20),
+    fontWeight: "bold",
+    color: "#666",
+    alignSelf: "flex-end",
+  },
 });
