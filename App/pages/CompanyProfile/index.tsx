@@ -45,7 +45,6 @@ const CompanyProfile: React.FC = () => {
     }
 
     getCompany();
-    console.log(company);
   }, []);
 
   function _handleProfileData() {
