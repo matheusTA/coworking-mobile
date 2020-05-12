@@ -5,6 +5,7 @@ import normalize from "react-native-normalize";
 import MapPage from "../pages/Map";
 import CompanyProfilePage from "../pages/CompanyProfile";
 import SignOut from "../components/SignOut";
+import LikedinProfile from "../pages/LikedinProfile";
 
 const Stack = createStackNavigator();
 
@@ -32,6 +33,21 @@ const MapRoutes: React.FC = () => {
       <Stack.Screen
         name="CompanyProfilePage"
         component={CompanyProfilePage}
+        options={{
+          headerTitle: "Coworking",
+          headerTitleStyle: {
+            color: "#F95F62",
+            fontWeight: "bold",
+            fontSize: normalize(30),
+          },
+          headerTitleAlign: "center",
+          headerBackTitle: "Voltar",
+          headerBackTitleVisible: true,
+        }}
+      />
+      <Stack.Screen
+        name="LinkedinProfile"
+        component={LikedinProfile}
         options={{
           headerTitle: "Coworking",
           headerTitleStyle: {
