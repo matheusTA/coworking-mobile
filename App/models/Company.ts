@@ -10,14 +10,14 @@ export interface Company {
   phone: string;
   location: Location;
   techs: string[];
-  spots: Spots[];
+  spots: Spot[];
 }
 
-export interface Spots {
+export interface Spot {
   _id: string;
   image: string;
   price: string;
-  company: string;
+  name: string;
 }
 
 export interface Location {
