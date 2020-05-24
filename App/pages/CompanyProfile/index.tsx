@@ -1,12 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  View,
-  Text,
-  Image,
-  FlatList,
-  TouchableOpacity,
-  ScrollView,
-} from "react-native";
+import { View, Text, Image, FlatList, TouchableOpacity } from "react-native";
 import { useRoute, RouteProp, useNavigation } from "@react-navigation/native";
 import { Company, ResponseCompanyById, Spot } from "../../models/Company";
 import { SocialIcon } from "react-native-elements";
