@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { View, Text, TouchableOpacity, Image, ScrollView } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { SearchBar } from "react-native-elements";
-import { debounce } from "lodash";
+import { MaterialIcons } from "@expo/vector-icons";
 
 import styles from "./styles";
 import { ResponseCompaniesByName, Company } from "../../models/Company";
@@ -38,32 +38,39 @@ export default function Search() {
         onCancel={() => setSearch("")}
       />
 
-      <ScrollView>
-        {companies.map((company) => (
-          <TouchableOpacity
-            style={styles.spotsContainer}
-            key={company._id}
-            onPress={() =>
-              navigation.navigate("CompanyProfilePage", {
-                companyId: company._id,
-              })
-            }
-          >
-            <Image
-              style={styles.spotImage}
-              source={{
-                uri: company.logo,
-              }}
-            />
+      {companies.length ? (
+        <ScrollView>
+          {companies.map((company) => (
+            <TouchableOpacity
+              style={styles.spotsContainer}
+              key={company._id}
+              onPress={() =>
+                navigation.navigate("CompanyProfilePage", {
+                  companyId: company._id,
+                })
+              }
+            >
+              <Image
+                style={styles.spotImage}
+                source={{
+                  uri: company.logo,
+                }}
+              />
 
-            <View style={styles.spotData}>
-              <Text style={styles.spotTitle}>{company.name}</Text>
-              <Text style={styles.spotEmail}>{company.email}</Text>
-              <Text style={styles.spotTechs}>{company.techs.join(", ")}</Text>
-            </View>
-          </TouchableOpacity>
-        ))}
-      </ScrollView>
+              <View style={styles.spotData}>
+                <Text style={styles.spotTitle}>{company.name}</Text>
+                <Text style={styles.spotEmail}>{company.email}</Text>
+                <Text style={styles.spotTechs}>{company.techs.join(", ")}</Text>
+              </View>
+            </TouchableOpacity>
+          ))}
+        </ScrollView>
+      ) : (
+        <View style={styles.containerNotFound}>
+          <MaterialIcons name="not-interested" size={100} color="#666" />
+          <Text style={styles.textNotFound}>Pesquise por empresas</Text>
+        </View>
+      )}
     </View>
   );
 }

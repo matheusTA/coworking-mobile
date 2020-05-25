@@ -54,4 +54,16 @@ export default StyleSheet.create({
     fontWeight: "300",
     color: "#666",
   },
+
+  containerNotFound: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
+  textNotFound: {
+    fontSize: normalize(25),
+    fontWeight: "bold",
+    color: "#666",
+  },
 });
