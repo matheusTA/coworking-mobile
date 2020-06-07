@@ -10,7 +10,7 @@
 
 <h3 align="center">
   <img alt="coworking" 
-    src="./screenshots/rec.gif?raw=true" width="180px"/>
+    src="./screenshots/rec1.gif?raw=true" width="180px"/>
   <img alt="coworking" 
     src="./screenshots/screen8.png?raw=true" width="180px"/>
   <img alt="coworking" 
