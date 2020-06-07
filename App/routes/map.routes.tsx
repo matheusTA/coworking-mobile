@@ -6,6 +6,7 @@ import MapPage from "../pages/Map";
 import CompanyProfilePage from "../pages/CompanyProfile";
 import SignOut from "../components/SignOut";
 import LikedinProfile from "../pages/LikedinProfile";
+import Booking from "../pages/Booking";
 
 const Stack = createStackNavigator();
 
@@ -48,6 +49,21 @@ const MapRoutes: React.FC = () => {
       <Stack.Screen
         name="LinkedinProfile"
         component={LikedinProfile}
+        options={{
+          headerTitle: "Coworking",
+          headerTitleStyle: {
+            color: "#F95F62",
+            fontWeight: "bold",
+            fontSize: normalize(30),
+          },
+          headerTitleAlign: "center",
+          headerBackTitle: "Voltar",
+          headerBackTitleVisible: true,
+        }}
+      />
+      <Stack.Screen
+        name="Booking"
+        component={Booking}
         options={{
           headerTitle: "Coworking",
           headerTitleStyle: {
