@@ -82,7 +82,7 @@ export default StyleSheet.create({
 
   spotData: {
     flex: 1,
-    justifyContent: "space-between",
+    // justifyContent: "space-between",
   },
 
   spotTitle: {
@@ -95,6 +95,21 @@ export default StyleSheet.create({
     fontSize: normalize(20),
     fontWeight: "bold",
     color: "#666",
-    alignSelf: "flex-end",
+    // alignSelf: "flex-end",
+  },
+
+  bookingButton: {
+    padding: normalize(10),
+    backgroundColor: "#84c870",
+    marginTop: normalize(10),
+    borderRadius: normalize(5),
+    // textAlign: "center",
+  },
+
+  bookingText: {
+    textAlign: "center",
+    fontSize: normalize(20),
+    color: "#fff",
+    fontWeight: "bold",
   },
 });

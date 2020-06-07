@@ -102,14 +102,27 @@ const CompanyProfile: React.FC = () => {
 
   function _handleItemList(spot: Spot) {
     return (
-      <TouchableOpacity style={styles.spotsContainer}>
+      <View style={styles.spotsContainer}>
         <Image style={styles.spotImage} source={{ uri: spot.image }} />
 
         <View style={styles.spotData}>
-          <Text style={styles.spotTitle}>{spot.name}</Text>
-          <Text style={styles.spotPrice}>{spot.price}</Text>
+          <View>
+            <Text style={styles.spotTitle}>{spot.name}</Text>
+            <Text style={styles.spotPrice}>{spot.price}</Text>
+          </View>
+
+          <TouchableOpacity
+            style={styles.bookingButton}
+            onPress={() =>
+              navigation.navigate("Booking", {
+                spotId: spot._id,
+              })
+            }
+          >
+            <Text style={styles.bookingText}>Reservar</Text>
+          </TouchableOpacity>
         </View>
-      </TouchableOpacity>
+      </View>
     );
   }
 
