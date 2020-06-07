@@ -13,31 +13,31 @@
     src="./screenshots/rec.gif?raw=true" width="180px"/>
 
 <img alt="coworking" 
-    src="./screenshots/screen8.PNG?raw=true" width="180px"/>
+    src="./screenshots/screen8.png?raw=true" width="180px"/>
 
 <img alt="coworking" 
-    src="./screenshots/screen9.PNG?raw=true" width="180px"/>
+    src="./screenshots/screen9.png?raw=true" width="180px"/>
 
 <img alt="coworking" 
-    src="./screenshots/screen7.PNG?raw=true" width="180px"/>
+    src="./screenshots/screen7.png?raw=true" width="180px"/>
 
 <img alt="coworking" 
-    src="./screenshots/screen6.PNG?raw=true" width="180px"/>
+    src="./screenshots/screen6.png?raw=true" width="180px"/>
 
 <img alt="coworking" 
-    src="./screenshots/screen5.PNG?raw=true" width="180px"/>
+    src="./screenshots/screen5.png?raw=true" width="180px"/>
 
 <img alt="coworking" 
-    src="./screenshots/screen4.PNG?raw=true" width="180px"/>
+    src="./screenshots/screen4.png?raw=true" width="180px"/>
 
 <img alt="coworking" 
-    src="./screenshots/screen3.PNG?raw=true" width="180px"/>
+    src="./screenshots/screen3.png?raw=true" width="180px"/>
 
 <img alt="coworking" 
-    src="./screenshots/screen2.PNG?raw=true" width="180px"/>
+    src="./screenshots/screen2.png?raw=true" width="180px"/>
 
 <img alt="coworking" 
-    src="./screenshots/screen1.PNG?raw=true" width="180px"/>
+    src="./screenshots/screen1.png?raw=true" width="180px"/>
 
 </h3>
 
