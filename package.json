@@ -16,7 +16,7 @@
     "@types/node": "^13.13.0",
     "@types/socket.io-client": "^1.4.33",
     "@types/yup": "^0.26.36",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "date-fns": "^2.14.0",
     "expo": "~37.0.3",
     "expo-location": "~8.1.0",
